@@ -1,8 +1,24 @@
 .App {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.whatThe, .image-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 18px;
+}
+
+.image-time-wrap {
+  /* width: 50%; */
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
 }
 
 .button-wrap {
@@ -11,17 +27,10 @@
   justify-content: center;
 }
 
-.image-time-wrap {
-  /* width: 50%; */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .image-style {
     padding: 2rem;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     background: url('https://media.giphy.com/media/qi29MoLjWNPUI/giphy.gif');
     background-size: cover;
     display: none;

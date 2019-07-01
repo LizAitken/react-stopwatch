@@ -67,15 +67,19 @@ class App extends Component {
     return (
       <div className="App">
         <div className="image-time-wrap">
-          <div className={showImage}></div>
           <h1>Timer</h1>
-          <p>Time Remaining: {seconds}</p> 
-        </div>      
-        <div className="button-wrap">
-          <Button clickHandler={this.startTimerSec} name={"Start Timer"}/>
-          <Button clickHandler={this.stopTimer} name={"Stop Timer"}/>
-          <Button clickHandler={this.resetTimer} name={"Reset Timer"}/>
+          <p>Time Remaining: {seconds}</p>  
+        </div> 
+        <div className="whatThe">  
           <InputForm initialValue={this.state.seconds} handleChange={(e) => this.handleChange(e)}/>
+        </div> 
+        <div className="button-wrap">
+          <Button clickHandler={this.startTimerSec} name={"Start"}/>
+          <Button clickHandler={this.stopTimer} name={"Stop"}/>
+          <Button clickHandler={this.resetTimer} name={"Reset"}/>
+        </div>
+        <div className="image-wrap">
+          <div className={showImage}></div>
         </div>
       </div>
     );
