@@ -7,7 +7,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    seconds: 0
+    seconds: 0,
+    countdown: false
   };
 
   countdownIntervalSec = 0;
@@ -16,11 +17,15 @@ class App extends Component {
     let newSec = this.state.seconds - 1;
     if (newSec === 0) {
       console.log("Time's up!");
+      this.setState({
+        countdown: true
+      });
       clearInterval(this.countdownIntervalSec);
     }
    
     this.setState({
-      seconds: newSec    
+      seconds: newSec 
+      // countdown: true   
     });
   };
 
@@ -44,14 +49,15 @@ class App extends Component {
     clearInterval(this.countdownIntervalSec);
 
     this.setState({
-      seconds: 0     
+      seconds: 0,
+      countdown: false    
     });
   }
 
   render() {
-    const { seconds } = this.state;
+    const { seconds, countdown } = this.state;
     let showImage = 'image-style';
-    if(seconds <= 0) {
+    if(seconds === 0 && countdown === true) {
       showImage += ' show';
     } else {
       showImage = 'imageStyle';
