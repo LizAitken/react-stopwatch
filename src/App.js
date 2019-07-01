@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
 import Button from './button';
 import InputForm from './userInput';
-import ImageDiv from './imageDiv';
+// import ImageDiv from './imageDiv';
 import './App.css';
 
 
 class App extends Component {
   state = {
-    seconds: 0,
-    image: []
+    seconds: 0
   };
 
   countdownIntervalSec = 0;
 
   addTime = () => {   
     let newSec = this.state.seconds - 1;
-    const images = ImageDiv();
-
     if (newSec === 0) {
       console.log("Time's up!");
       clearInterval(this.countdownIntervalSec);
     }
    
     this.setState({
-      seconds: newSec,
-      image: images    
+      seconds: newSec    
     });
   };
 
@@ -53,12 +49,19 @@ class App extends Component {
   }
 
   render() {
-    const { seconds, images } = this.state;
+    const { seconds } = this.state;
+    let showImage = 'image-style';
+    if(seconds <= 0) {
+      showImage += ' show';
+    } else {
+      showImage = 'imageStyle';
+    }
+
 
     return (
       <div className="App">
         <div className="image-time-wrap">
-          {/* <div className="image-style" {images.src}></div> */}
+          <div className={showImage}></div>
           <h1>Timer</h1>
           <p>Time Remaining: {seconds}</p> 
         </div>      
